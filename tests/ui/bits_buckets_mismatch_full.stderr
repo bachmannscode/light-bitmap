@@ -1,0 +1,23 @@
+error[E0080]: evaluation of constant value failed
+ --> src/bitmap.rs
+  |
+  | /     ["BUCKET_COUNT must match bucket_count(BIT_COUNT)."]
+  | |         [(bucket_count(bit_count) != buckets) as usize];
+  | |_______________________________________________________^ index out of bounds: the length is 1 but the index is 1
+  |
+note: inside `light_bitmap::bitmap::compile_assert_const_params`
+ --> src/bitmap.rs
+  |
+  | /     ["BUCKET_COUNT must match bucket_count(BIT_COUNT)."]
+  | |         [(bucket_count(bit_count) != buckets) as usize];
+  | |_______________________________________________________^
+note: inside `BitMap::<9, 1>::const_full`
+ --> src/bitmap.rs
+  |
+  |         compile_assert_const_params(BIT_COUNT, BUCKET_COUNT);
+  |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+note: inside `BITMAP`
+ --> tests/ui/bits_buckets_mismatch_full.rs:3:48
+  |
+3 | const BITMAP: BitMap<9, { bucket_count(8) }> = BitMap::const_full();
+  |                                                ^^^^^^^^^^^^^^^^^^^^

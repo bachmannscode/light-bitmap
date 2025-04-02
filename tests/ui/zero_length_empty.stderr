@@ -1,0 +1,21 @@
+error[E0080]: evaluation of constant value failed
+ --> src/bitmap.rs
+  |
+  |     ["BIT_COUNT must be greater than zero."][(bit_count == 0) as usize];
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ index out of bounds: the length is 1 but the index is 1
+  |
+note: inside `light_bitmap::bitmap::compile_assert_const_params`
+ --> src/bitmap.rs
+  |
+  |     ["BIT_COUNT must be greater than zero."][(bit_count == 0) as usize];
+  |     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+note: inside `BitMap::<0, 0>::const_empty`
+ --> src/bitmap.rs
+  |
+  |         compile_assert_const_params(BIT_COUNT, BUCKET_COUNT);
+  |         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+note: inside `BITMAP`
+ --> tests/ui/zero_length_empty.rs:3:48
+  |
+3 | const BITMAP: BitMap<0, { bucket_count(0) }> = BitMap::const_empty();
+  |                                                ^^^^^^^^^^^^^^^^^^^^^

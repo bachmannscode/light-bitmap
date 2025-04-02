@@ -1,0 +1,14 @@
+[package]
+name = "light_bitmap"
+version = "0.1.0"
+edition = "2024"
+description = "A minimal, fixed-size bitmap library written in pure Rust."
+license = "MIT"
+authors = ["Michael Bachmann"]
+repository = "https://github.com/bachmannscode/light-bitmap"
+readme = "README.md"
+keywords = ["bitmap", "bitset", "const", "no_std", "heapless"]
+categories = ["data-structures", "no-std", "embedded"]
+
+[dev-dependencies]
+trybuild = "1.0"
